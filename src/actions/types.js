@@ -1,0 +1,10 @@
+export const CHANGE_CITY = 'CHANGE_CITY';
+export const GET_WEATHER = 'GET_WEATHER';
+export const HAS_ERROR = 'HAS_ERROR';
+export const CHANGE_THEME = 'CHANGE_THEME';
+export const TOGGLE_FETCHING = 'TOGGLE_FETCHING';
+export const TOGGLE_SEARCH_PANEL = 'TOGGLE_SEARCH_PANEL';
+
+
+
+

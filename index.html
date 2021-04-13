@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./css/normalize.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div id="search" class="search">
+        <div id="closeSearch" class="search__close">
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 26 26"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M26 2.61857L23.3814 0L13 10.3814L2.61857 0L0 2.61857L10.3814 13L0 23.3814L2.61857 26L13 15.6186L23.3814 26L26 23.3814L15.6186 13L26 2.61857Z"
+              fill="#48484A"
+            />
+          </svg>
+          <svg
+            width="26"
+            height="26"
+            viewBox="0 0 26 26"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            class="hide"
+          >
+            <path
+              d="M26 2.61857L23.3814 0L13 10.3814L2.61857 0L0 2.61857L10.3814 13L0 23.3814L2.61857 26L13 15.6186L23.3814 26L26 23.3814L15.6186 13L26 2.61857Z"
+              fill="#E6E6E6"
+            />
+          </svg>
+        </div>
+        <div>
+          <form class="search__grid">
+            <input type="text" class="search__input" placeholder="Москва" />
+            <button class="search__button">Найти</button>
+            <p class="error-text"></p>
+          </form>
+        </div>
+      </div>
+      <div class="now">
+        <div class="now__btns-wrapper">
+          <button id="openSearch" class="now__search-button">
+            Поиск города
+          </button>
+          <button
+            class="now__change-theme-button now__change-theme-button--light"
+          >
+            <div class="now__change-theme-button__icon-wrapper">
+              <img src="./img/moon.png" class="now__change-theme-button-icon" />
+            </div>
+          </button>
+          <button
+            class="now__change-theme-button now__change-theme-button--dark hide"
+          >
+            <div
+              class="now__change-theme-button__icon-wrapper now__change-theme-button__icon-wrapper--dark-theme"
+            >
+              <img
+                src="./img/moon-dark.png"
+                class="now__change-theme-button-icon"
+              />
+            </div>
+          </button>
+        </div>
+
+        <img class="now__icon" src="./img/snowflake.svg" alt="" />
+        <div class="now__description">
+          <div class="now__temperature">
+            <h2 class="now__temperature-title">1</h2>
+            <span class="now__temperature-unit">°C</span>
+          </div>
+          <div class="now__fallout">Cнег</div>
+          <div class="now__feeling">Ощущается как -3 °C</div>
+        </div>
+        <div class="now__time">
+          <div class="now__time-day">Сегодня</div>
+          <div class="now__time-date">Вс, 13 мар</div>
+        </div>
+        <div class="now__point">
+          <svg
+            width="24"
+            height="34"
+            viewBox="0 0 24 34"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.9999 0.333344C5.54992 0.333344 0.333252 5.55001 0.333252 12C0.333252 20.75 11.9999 33.6667 11.9999 33.6667C11.9999 33.6667 23.6666 20.75 23.6666 12C23.6666 5.55001 18.4499 0.333344 11.9999 0.333344ZM11.9999 16.1667C10.8949 16.1667 9.83504 15.7277 9.05364 14.9463C8.27224 14.1649 7.83325 13.1051 7.83325 12C7.83325 10.8949 8.27224 9.83513 9.05364 9.05373C9.83504 8.27233 10.8949 7.83334 11.9999 7.83334C13.105 7.83334 14.1648 8.27233 14.9462 9.05373C15.7276 9.83513 16.1666 10.8949 16.1666 12C16.1666 13.1051 15.7276 14.1649 14.9462 14.9463C14.1648 15.7277 13.105 16.1667 11.9999 16.1667Z"
+              fill="#EC6E4D"
+            />
+          </svg>
+          <span class="now__point-title">Москва</span>
+        </div>
+      </div>
+      <div class="main">
+        <div class="container">
+          <section class="metcast">
+            <div class="metcast__tabs">
+              <div class="metcast__tabs-title">Прогноз</div>
+              <div class="metcast__tabs-control">
+                <div class="metcast__tabs-btn is-active">на неделю</div>
+                <div class="metcast__tabs-btn">почасовой</div>
+              </div>
+              <div class="metcast__tabs-wrapper">
+                <div class="metcast__tabs-content is-active">
+                  <div class="metcast__slider slider">
+                    <div class="slider__wrapper">
+                      <div class="slider__grid">
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_1.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">Завтра</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                            <div class="slider__item-temperature-feeling">
+                              4°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_2.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">Пн, 15 мар</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                            <div class="slider__item-temperature-feeling">
+                              4°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_2.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">Вт, 16 мар</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                            <div class="slider__item-temperature-feeling">
+                              4°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_3.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">Ср, 17 мар</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                            <div class="slider__item-temperature-feeling">
+                              4°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_3.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">Чт, 18 мар</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                            <div class="slider__item-temperature-feeling">
+                              4°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_3.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">Пт, 19 мар</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                            <div class="slider__item-temperature-feeling">
+                              4°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_3.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">Сб, 20 мар</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                            <div class="slider__item-temperature-feeling">
+                              4°C
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="slider__control slider__control_prev slider__control_disabled"
+                    >
+                      <svg
+                        width="13"
+                        height="16"
+                        viewBox="0 0 13 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 1.5L10.1265 7.14974C10.758 7.54068 10.758 8.45932 10.1265 8.85027L1 14.5"
+                          stroke="#ACACAC"
+                          stroke-width="3"
+                        />
+                      </svg>
+                    </div>
+                    <div class="slider__control slider__control_next">
+                      <svg
+                        width="13"
+                        height="16"
+                        viewBox="0 0 13 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 1.5L10.1265 7.14974C10.758 7.54068 10.758 8.45932 10.1265 8.85027L1 14.5"
+                          stroke="#ACACAC"
+                          stroke-width="3"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="metcast__tabs-content">
+                  <div class="metcast__slider slider">
+                    <div class="slider__wrapper">
+                      <div class="slider__grid">
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_1.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">15:00</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_1.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">16:00</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_1.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">17:00</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_1.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">18:00</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_2.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">19:00</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_2.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">20:00</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_3.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">21:00</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_3.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">22:00</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_3.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">23:00</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_3.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">0:00</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_3.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">01:00</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                          </div>
+                        </div>
+                        <div class="slider__item">
+                          <figure class="slider__item-image">
+                            <img src="./img/image_weather_3.svg" alt="" />
+                          </figure>
+                          <div class="slider__item-date">02:00</div>
+                          <div class="slider__item-temperature">
+                            <div class="slider__item-temperature-real">
+                              10°C
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="slider__control slider__control_prev slider__control_disabled"
+                    >
+                      <svg
+                        width="13"
+                        height="16"
+                        viewBox="0 0 13 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 1.5L10.1265 7.14974C10.758 7.54068 10.758 8.45932 10.1265 8.85027L1 14.5"
+                          stroke="#ACACAC"
+                          stroke-width="3"
+                        />
+                      </svg>
+                    </div>
+                    <div class="slider__control slider__control_next">
+                      <svg
+                        width="13"
+                        height="16"
+                        viewBox="0 0 13 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M1 1.5L10.1265 7.14974C10.758 7.54068 10.758 8.45932 10.1265 8.85027L1 14.5"
+                          stroke="#ACACAC"
+                          stroke-width="3"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section class="detail">
+            <div class="detail__title">Подробно на сегодня</div>
+            <div class="detail__grid">
+              <div class="detail__item">
+                <div class="detail__item-title">Скорость ветра</div>
+                <h3 class="detail__item-value"><span id="windSpeedValue">7</span> <small>м/с</small></h3>
+                <div class="detail__item-wind-direction">
+                  <svg
+                    width="38"
+                    height="38"
+                    viewBox="0 0 38 38"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle cx="19" cy="19" r="19" fill="#48484A" />
+                    <path
+                      d="M18.1951 31.0029L10.0872 10.8978C9.76221 10.092 10.5487 9.28365 11.3631 9.58643L31.9073 17.2246C32.7267 17.5293 32.7906 18.6717 32.0237 19.0912C26.1915 22.2822 23.1612 25.3608 20.0501 31.0907C19.6388 31.8482 18.5175 31.8023 18.1951 31.0029Z"
+                      fill="#E6E6E6"
+                    />
+                  </svg>
+                  <span>СЗ</span>
+                </div>
+              </div>
+              <div class="detail__item">
+                <div class="detail__item-title">Влажность</div>
+                <div class="detail__item-value"><span id="humidityValue">84 </span><small>%</small></div>
+              </div>
+              <div class="detail__item">
+                <div class="detail__item-title">Видимость</div>
+                <div class="detail__item-value"><span id="visibilityValue">6.2 </span><small>км</small></div>
+              </div>
+              <div class="detail__item detail__item_pressure">
+                <div class="detail__item-title">Давление</div>
+                <div class="detail__item-value">
+                  <span id="pressureValue">742 </span> <small>мм рт. ст.</small>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
