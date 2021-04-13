@@ -17,7 +17,7 @@ function App(props) {
         <Sidebar changeTheme={props.changeTheme} />
         <Main />
       </div >
-    );
+    ); 
   }
 };
 
